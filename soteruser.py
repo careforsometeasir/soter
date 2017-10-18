@@ -1,19 +1,19 @@
-from os import urandom
-from binascii import hexlify
-from hashlib import sha256
-from json import dumps
-from ast import literal_eval
+import os
+import binascii 
+import hashlib 
+import json
+import ast
 
 users = {}
 
 def salt(length):
     """Will generate a hexadecimal salt of length bytes"""
-    byte = urandom(length)
-    return hexlify(byte)
+    byte = os.urandom(length)
+    return binascii.hexlify(byte)
 
 def hashify(password, salt):
-    """Hashes the password using SHA256 with the salt"""
-    return sha256(password.encode('utf-8')+salt).hexdigest()
+    """Hashes the password using SHA512 with the salt"""
+    return hashlib.sha512(password.encode('utf-8')+salt).hexdigest()
 
 def newUser(username, password, length=16):
     """Adds a user and returns user list"""
@@ -55,7 +55,7 @@ def login(username, password, content=users):
 def load(filePath):
     """Loads JSON/Plaintext as dict"""
     file = open(filePath, "r")
-    return literal_eval(file.read())
+    return ast.literal_eval(file.read())
     file.close()
 
 def export(filePath, content=users):
@@ -65,7 +65,7 @@ def export(filePath, content=users):
         file.write(content)
         return 5
     elif isinstance(content, dict) == True:
-        file.write(dumps(content))
+        file.write(json.dumps(content))
         return 5
     else:
         return 6
