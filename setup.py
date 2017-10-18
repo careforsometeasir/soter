@@ -13,13 +13,13 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='soter',
+    name='soteruser',
     version=version,
 
     description='A module to store usernames, hashed passwords and salts',
     long_description=long_description,
     
-    url='https://github.com/careforsometeasir/soter/',
+    url='https://github.com/careforsometeasir/soteruser/',
     
     author='Ryszard Wypijewski',
     author_email='richywypi@gmail.com',
@@ -37,7 +37,7 @@ setup(
 
     keywords='security hash safe storage admin accounts',
     packages=[],
-    py_modules=["soter"],
+    py_modules=["soteruser"],
     install_requires=['os','binascii','hashlib','json','ast'],
 
     python_requires='>=3,<4',
