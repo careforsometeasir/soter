@@ -2,10 +2,12 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
-    version = version_file.read().strip()
+
 
 here = path.abspath(path.dirname(__file__))
+
+with open(path.join(here, 'VERSION')) as version_file:
+    version = version_file.read().strip()
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
