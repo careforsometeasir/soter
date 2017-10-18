@@ -23,7 +23,7 @@ def newUser(username, password, length=16):
         salty = salt(length)
         hashedPass = hashify(password, salty)
         users[username]={"password":hashedPass,"salt":salty.decode('utf-8')}
-        return users
+        return 5
 
 
 def generateUser(username, password, length=16):
@@ -72,5 +72,5 @@ def export(filePath):
 
 def codes():
     """Codes for Error and Success"""
-    return {1:"Correct Password", 2:"Incorrect Password", 3:"User Already Exists", 4:"User Doesn't Exist"}
+    return {1:"Correct Password", 2:"Incorrect Password", 3:"User Already Exists", 4:"User Doesn't Exist", 5:"Success"}
 
