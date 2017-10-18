@@ -20,14 +20,14 @@ def newUser(username, password):
     if username in users:
         return 3
     else:
-        salty = salt(8)
+        salty = salt(16)
         hashedPass = hashify(password, salty)
         users[username]={"password":hashedPass,"salt":salty.decode('utf-8')}
         return users
 
 def generateUser(username, password):
     """Generates a user"""
-    salty = salt(8)
+    salty = salt(16)
     hashedPass = hashify(password, salty)
     content = {username:{"password":hashedPass, "salt":salty.decode('utf-8')}}
     return content
