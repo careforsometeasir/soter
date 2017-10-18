@@ -58,19 +58,21 @@ def load(filePath):
     return ast.literal_eval(file.read())
     file.close()
 
-def export(filePath):
+def export(filePath, content=users):
     """Exports local database as JSON to specified file path"""
     file = open(filePath, "w")
-    if isinstance(users, str) == True:
-        file.write(users)
-    elif isinstance(users, dict) == True:
-        file.write(json.dumps(users))
+    if isinstance(content, str) == True:
+        file.write(content)
+        return 5
+    elif isinstance(content, dict) == True:
+        file.write(json.dumps(content))
+        return 5
     else:
-        return "Error"
+        return 6
     
     file.close()
 
 def codes():
     """Codes for Error and Success"""
-    return {1:"Correct Password", 2:"Incorrect Password", 3:"User Already Exists", 4:"User Doesn't Exist", 5:"Success"}
+    return {1:"Correct Password", 2:"Incorrect Password", 3:"User Already Exists", 4:"User Doesn't Exist", 5:"Success", 6:"Fail"}
 
