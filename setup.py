@@ -5,7 +5,9 @@ setup(
     version='0.1',
 
     description='A module to store usernames, hashed passwords and salts',
-
+    
+    url='https://github.com/careforsometeasir/soter/',
+    
     author='Ryszard Wypijewski',
     author_email='richywypi@gmail.com',
 
