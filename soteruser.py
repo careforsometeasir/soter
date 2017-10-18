@@ -25,6 +25,7 @@ def newUser(username, password):
         users[username]={"password":hashedPass,"salt":salty.decode('utf-8')}
         return users
 
+
 def generateUser(username, password):
     """Generates a user"""
     salty = salt(16)
