@@ -1,8 +1,7 @@
 from os import urandom
 from binascii import hexlify
 from hashlib import sha256
-from json import dumps
-from ast import literal_eval
+from json import dumps, loads
 
 users = {}
 
@@ -55,8 +54,10 @@ def login(username, password, content=users):
 def load(filePath):
     """Loads JSON/Plaintext as dict"""
     file = open(filePath, "r")
-    return literal_eval(file.read())
+    data = file.read()
     file.close()
+    replace = data.replace("'","\"")
+    return loads(replace)
 
 def export(filePath, content=users):
     """Exports local database as JSON to specified file path"""
